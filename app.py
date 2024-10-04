@@ -5,7 +5,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Kaydedilmiş modeli yükle
-with open('random_forest_model.pkl', 'rb') as file:
+with open('bagging_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Tahmin işlemi için AJAX isteğini kabul eden route
