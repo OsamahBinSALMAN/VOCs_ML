@@ -16,7 +16,8 @@ def predict():
         data = request.json['data']  # AJAX ile gelen veriyi al
         input_array = np.array([float(i) for i in data.split(',')]).reshape(1, -1)  # Veriyi işle
         prediction = model.predict(input_array)[0]  # Modelden tahmin sonucu al
-        return jsonify({'prediction': prediction})  # JSON formatında sonucu döndür
+        classes=["Argon","Acetone","Methanol"]
+        return jsonify({'prediction': classes[prediction]})  # JSON formatında sonucu döndür
     
     except Exception as e:
         return jsonify({'error': str(e)})
